@@ -1,0 +1,1 @@
+# azure-sentinel-bruteforce-lab
