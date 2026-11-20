@@ -1,1 +1,38 @@
-# azure-sentinel-bruteforce-lab
+# Azure Sentinel (SIEM) Brute Force Attack Detection Lab
+
+## Objective
+The goal of this project was to deploy a cloud-based honeypot virtual machine in Microsoft Azure, ingest Windows Security Event logs into a Log Analytics Workspace, and configure Microsoft Sentinel to detect and alert on simulated RDP brute-force attacks.
+
+## Tools & Technologies Used
+* **Cloud Provider:** Microsoft Azure
+* **SIEM:** Microsoft Sentinel
+* **Log Management:** Log Analytics Workspace, Azure Monitor Agent (AMA), Data Collection Rules (DCR)
+* **Compute & Networking:** Windows Server Virtual Machine, Network Security Groups (NSG)
+* **Query Language:** Kusto Query Language (KQL)
+
+## Architecture & Data Flow
+1. **Target:** A Windows Server VM was deployed as a honeypot, with its Network Security Group (NSG) modified to expose RDP (Port 3389) to the internet.
+2. **Log Collection:** An Azure Data Collection Rule was configured to push Windows Security Event logs (specifically failed logins) to a Log Analytics Workspace.
+3. **Detection:** A custom KQL query was written in Microsoft Sentinel to detect when an attacker generated 5 or more failed login attempts (Event ID 4625) within a 1-hour window.
+4. **Alerting:** Sentinel generated a High-severity incident, mapping the attacker's IP, target account, and host machine for SOC analyst investigation.
+
+## The Detection Query (KQL)
+This query identifies multiple failed login attempts originating from the same IP address:
+
+ SecurityEvent
+ | where EventID == 4625
+ | where LogonType in (3, 10)
+ | summarize FailedLogonCount = count() by TargetAccount, IpAddress, Computer
+ | where FailedLogonCount >= 5
+
+## Visual Evidence
+*(Add your screenshots here by dragging and dropping them into the GitHub editor!)*
+
+**1. Incident Triggered in Sentinel Dashboard**
+*(Drop your incident queue screenshot here)*
+
+**2. Incident Investigation Graph with Entity Mapping**
+*(Drop your mapped graph screenshot here showing the IP, User, and VM)*
+
+## Conclusion
+This lab successfully demonstrated the end-to-end configuration of a cloud SIEM pipeline, from infrastructure provisioning and log ingestion to custom rule creation and entity mapping.
