@@ -26,13 +26,12 @@ This query identifies multiple failed login attempts originating from the same I
  | where FailedLogonCount >= 5
 
 ## Visual Evidence
-*(Add your screenshots here by dragging and dropping them into the GitHub editor!)*
 
 **1. Incident Triggered in Sentinel Dashboard**
-*(Drop your incident queue screenshot here)*
+<img width="1202" height="632" alt="sentinel_incident_queue" src="https://github.com/user-attachments/assets/a1576081-a186-4965-a885-f1a4f944c379" />
 
 **2. Incident Investigation Graph with Entity Mapping**
-*(Drop your mapped graph screenshot here showing the IP, User, and VM)*
+<img width="1204" height="649" alt="incident_investigation_graph" src="https://github.com/user-attachments/assets/d40a286c-0a6c-466c-8056-44b9e9f7fac7" />
 
 ## Conclusion
 This lab successfully demonstrated the end-to-end configuration of a cloud SIEM pipeline, from infrastructure provisioning and log ingestion to custom rule creation and entity mapping.
