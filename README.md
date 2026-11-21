@@ -29,9 +29,11 @@ This query identifies multiple failed login attempts originating from the same I
 
 **1. Incident Triggered in Sentinel Dashboard**
 <img width="1202" height="632" alt="sentinel_incident_queue" src="https://github.com/user-attachments/assets/a1576081-a186-4965-a885-f1a4f944c379" />
+<img width="1212" height="653" alt="sentinel_incident_metrics" src="https://github.com/user-attachments/assets/2348c2fe-fcd6-441b-9207-7c0ec7b07716" />
+
 
 **2. Incident Investigation Graph with Entity Mapping**
-<img width="1204" height="649" alt="incident_investigation_graph" src="https://github.com/user-attachments/assets/d40a286c-0a6c-466c-8056-44b9e9f7fac7" />
+<img width="1204" height="649" alt="incident_investigation_graph" src="https://github.com/user-attachments/assets/a7982f3a-9419-4b96-b907-da7fc73e1b09" />
 
 ## Conclusion
 This project was undertaken to successfully demonstrate the end-to-end configuration of a cloud-based SIEM pipeline. It demonstrates all applications from infrastructure provisioning and log ingestion to custom rule creation and entity mapping.
